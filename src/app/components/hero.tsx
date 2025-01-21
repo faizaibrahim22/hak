@@ -43,7 +43,7 @@ const Hero = () => {
 
   return (
     <div>
-      <div className='bg-slate-100'>
+      <div className='bg-slate-100 top-4 relative'>
         <Image src="/Container.jpg" alt='' width={1440} height={300} />
       </div>
       <div className='flex justify-center items-center font-semibold text-2xl py-7'>

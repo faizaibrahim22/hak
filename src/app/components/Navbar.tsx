@@ -4,13 +4,16 @@ import { IoSearchSharp } from 'react-icons/io5';
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import Image from 'next/image';
+import { AiOutlineLogin } from "react-icons/ai";
 
 
 const Navbar = () => {
   return (
     <nav className="bg-slate-100 w-[1110] h-[203px] text-black p-4 shadow-md">
       <div className="text-2xl cursor-pointer">
-        <IoSearchSharp />
+        <Link  href ="/Search" >
+        <IoSearchSharp className='relative  ml' />
+        </Link>
       </div>
       <div className="flex justify-center relative right-7 items-center">
         <div className="text-xl font-bold">Avion</div>
@@ -23,9 +26,15 @@ const Navbar = () => {
         <div className='text-2xl cursor-pointer relative ml-96 left-96'><FaCartShopping />
         </div>
       </div>
+      <div className='relative bottom-24  ml-10'>
+      <Link href="/Login">Login
+      <AiOutlineLogin className='relative bottom-5 ml-10' />
 
+      </Link>
+      </div>
       <div className="mt-4">
         <ul className="flex space-x-4 justify-center">
+            
           <li className="hover:underline">
             <Link href="/">Home</Link>
           </li>

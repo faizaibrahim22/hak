@@ -2,10 +2,13 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Image from 'next/image'
 import Footer from '../components/Footer'
+
+
 const page = () => {
   return (
     <div>
       <Navbar />
+      
       <div className='flex shadow-lg h-[100px]  items-center'>
         <p className='font-extrabold  text-2xl flex  items-center ml-96'> Your Shopping Cart</p>
       </div>
