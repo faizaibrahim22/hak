@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 const Var = () => {
   return (
-    <div className='flex justify-between relative  bottom-96 items-center'>
+    <div className='flex justify-between relative items-center'>
         <div className="flex justify-between relative bottom-96 font-extrabold text-3xl ">
           <Image
           src="/for.jpg"

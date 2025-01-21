@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button'
 
 const Head = () => {
   return (
-    <div className='relative bottom-96 '>
-      <div className=" flex justify-center items-center relative bottom-96">
+    <div >
+      <div className=" flex justify-center items-center ">
         <div className="text-3xl relative  bottom-96 text-black font-semibold text-center">
           <p className='relative bottom-96'>Join the club and get the benefits</p>
             <p className='text-sm relative font-normal bg-slate-50 bottom-96 '>Sign up for our newsletter and receive exclusive offers on

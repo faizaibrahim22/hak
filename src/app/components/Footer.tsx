@@ -12,7 +12,7 @@ import { FaPinterest } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className='relative bottom-96'>
+    <div>
       <div className='relative bottom-96'>
         <div className="bg-blue-950  text-white w-[1104px] h-[380px] relative bottom-96">
           <div className='flex flex-col py-16'>
@@ -66,7 +66,7 @@ const Footer = () => {
                     <FaInstagram  className="ml-14 relative bottom-6"/> 
                     <AiFillSkype className="ml-28 relative bottom-12" />
                     <FaTwitter className="ml-40  relative bottom-16 " />
-                    <FaPinterest  className="ml-52 relative bottom-20"/>
+                    <FaPinterest  className="ml-52 relative bottom-24"/>
 
                     
 

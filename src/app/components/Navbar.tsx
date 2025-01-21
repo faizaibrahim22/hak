@@ -8,11 +8,11 @@ import Image from 'next/image';
 
 const Navbar = () => {
   return (
-    <nav className="bg-slate-100 w-[1440] h-[203px] text-black p-4 shadow-md">
+    <nav className="bg-slate-100 w-[1110] h-[203px] text-black p-4 shadow-md">
       <div className="text-2xl cursor-pointer">
         <IoSearchSharp />
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center relative right-7 items-center">
         <div className="text-xl font-bold">Avion</div>
       </div>
       <div className='relative ml-64 bottom-11'>
@@ -36,7 +36,7 @@ const Navbar = () => {
             <Link href="/Contact">Contact</Link>
           </li>
           <li className="hover:underline">
-            <Link href="/Product">Product</Link>
+            <Link href="/Products">Products</Link>
           </li>
           <li className="hover:underline">
             <Link href="/Cart">Cart</Link>

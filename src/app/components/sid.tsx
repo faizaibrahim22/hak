@@ -4,10 +4,10 @@ import { Button } from '@/components/ui/button'
 
 const Sid = () => {
     return (
-        <div className='relative bottom-96'>
-            <div className='relative bottom-96'>
-                <p className='relative bottom-96 font-semibold text-3xl ml-10'>Our popular products</p>
-                <div className='relative bottom-72 '>
+        <div>
+            <div >
+                <p className='relative font-semibold text-3xl ml-10'>Our popular products</p>
+                <div className='relative bottom-72 top-10 '>
                     <Image
                         src="/Product Card (6).jpg"
                         alt=''
