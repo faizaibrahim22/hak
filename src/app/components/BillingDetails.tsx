@@ -16,7 +16,7 @@ interface BillingDetailsProps {
 
 const BillingDetails: React.FC<BillingDetailsProps> = ({ formData, onChange }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const {value } = e.target;
     onChange({
       ...formData,
       billingAddress: value,

@@ -1,8 +1,9 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { client } from "../../../sanity/lib/sanity";
 import Image from "next/image";
-import { colors } from "@mui/material";
+
 import ProductView from "@/app/components/productview";
 import BillingDetails from "@/app/components/BillingDetails";
 import PaymentDetails from "@/app/components/PaymentDetails";
