@@ -11,14 +11,10 @@ const page = () => {
   return (
     <div>
       <Navbar/>
-    
       <Hero/>
-     
       <Sid/>
       <Head/>
-
       <Var/>
-      
       <Footer/>
     
     </div>

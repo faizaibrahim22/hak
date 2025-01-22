@@ -1,19 +1,38 @@
-"use client"
-import React from 'react';
+"use client";
+import React from "react";
 
-const BillingDetails = ({ formData, onChange }: any) => {
+interface FormData {
+  billingAddress: string;
+  paymentDetails: {
+    cardNumber: string;
+    expiryDate: string;
+  };
+}
+
+interface BillingDetailsProps {
+  formData: FormData;
+  onChange: (updatedData: FormData) => void;
+}
+
+const BillingDetails: React.FC<BillingDetailsProps> = ({ formData, onChange }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange({ billingAddress: e.target.value });
+    const { name, value } = e.target;
+    onChange({
+      ...formData,
+      billingAddress: value,
+    });
   };
 
   return (
-    <div className='relative bottom-60 text-xl text-orange-700 shadow-xl' >
-      <h3>Billing Address</h3>
+    <div className="shadow-lg text-xl font-serif text-black relative bottom-48">
+      <h3 className="font-serif">Billing Address</h3>
       <input
         type="text"
-        value={formData?.billingAddress || ''} 
+        name="billingAddress"
+        value={formData.billingAddress}
         onChange={handleInputChange}
-        placeholder="Enter your billing address"
+        placeholder="Billing Address"
+        className="border p-2 mt-2 rounded mb-4"
       />
     </div>
   );

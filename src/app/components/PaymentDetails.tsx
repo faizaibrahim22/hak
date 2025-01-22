@@ -1,35 +1,57 @@
-"use client"
-import React from 'react';
+"use client";
+import React from "react";
 
-const PaymentDetails = ({ formData, onChange }: any) => {
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    onChange({ 
+// Assuming FormData is already defined somewhere in your code
+interface PaymentDetailsData {
+  cardNumber: string;
+  expiryDate: string;
+}
+
+interface FormData {
+  billingAddress: string;
+  paymentDetails: PaymentDetailsData;
+}
+
+interface PaymentDetailsProps {
+  formData: FormData;
+  onChange: (updatedData: FormData) => void;
+}
+
+const PaymentDetails: React.FC<PaymentDetailsProps> = ({ formData, onChange }) => {
+  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange({
+      ...formData,
       paymentDetails: {
-        ...formData.paymentDetails, 
-        [name]: value 
-      } 
+        ...formData.paymentDetails,
+        cardNumber: e.target.value,
+      },
+    });
+  };
+
+  const handleExpiryDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange({
+      ...formData,
+      paymentDetails: {
+        ...formData.paymentDetails,
+        expiryDate: e.target.value,
+      },
     });
   };
 
   return (
-    <div className=' shadow-lg  text-xl font-serif text-black  relative bottom-48'>
-      <h3  className='font-serif'>Payment Details</h3>
+    <div>
       <input
         type="text"
         name="cardNumber"
-        value={formData?.paymentDetails?.cardNumber || ''}  
-        onChange={handleInputChange}
-        placeholder="Card Number"
-        
-      />
+        value={formData.paymentDetails.cardNumber}
+        onChange={handleCardNumberChange}
+        placeholder="Card Number"/>
       <input
         type="text"
         name="expiryDate"
-        value={formData?.paymentDetails?.expiryDate || ''}
-        onChange={handleInputChange}
-        placeholder="Expiry Date (MM/YY)"
-      />
+        value={formData.paymentDetails.expiryDate}
+        onChange={handleExpiryDateChange}
+        placeholder="Expiry Date"/>
      
     </div>
   );

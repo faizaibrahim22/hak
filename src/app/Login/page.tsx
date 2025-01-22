@@ -1,14 +1,16 @@
 "use client"
 import { useState } from "react";
 
+
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email:", email, "Password:", password);
-    // Backend authentication API call here
+    console.log("Email", email, "Password", password);
+  
   };
 
   return (
@@ -35,8 +37,7 @@ const Login = () => {
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+              required/>
           </div>
           <button
             type="submit"
@@ -46,7 +47,7 @@ const Login = () => {
           </button>
         </form>
         <p className="text-gray-600 mt-4 text-center">
-          Don't have an account?{" "}
+          Dont have an account
           <a href="/signup" className="text-blue-500 hover:underline">Sign Up</a>
         </p>
       </div>

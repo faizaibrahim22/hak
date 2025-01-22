@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
 const products = [
   { id: 1, name: "Stylish T-Shirt", image: "/sofa.jpg", description: "Cotton T-Shirt" },
   { id: 2, name: "Classic Sneakers", image: "/sofa2.jpg", description: "Comfortable sneakers" },
@@ -18,13 +17,6 @@ const products = [
   { id: 12, name: "Casual Jeans", image: "/bed1.jpg", description: " comfortable bed" },
   { id: 13, name: "sofa bed", image: "/bed2.jpg", description: "Bed" },
   { id: 14, name: "sofa bed", image: "/beb sofa.jpg", description: "Bed sofa" },
-
-
-
-
-  
-
-  // Add more products here
 ];
 
 const SearchBar = () => {
