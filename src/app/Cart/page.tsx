@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Image from 'next/image'
-import Cart from "../components/Cart"
 import Footer from '../components/Footer'
 
 
@@ -36,7 +35,6 @@ const page = () => {
         <div className='py-96 relative top-96 '>
           <div className='py-96'>
             <div>
-        <Cart/>
 
             </div>
             

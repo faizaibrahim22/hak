@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+
 import { client } from "../../../sanity/lib/sanity";
 import Image from "next/image";
 
@@ -33,7 +33,7 @@ interface FormData {
 }
 
 const ProductDetail = () => {
-  const router = useRouter();
+
   const slug = typeof window !== "undefined" ? window.location.pathname.split("/").pop() : null;
 
   const [product, setProduct] = useState<Product | null>(null);
