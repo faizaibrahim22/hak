@@ -9,23 +9,22 @@ import { LuSprout } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { client, urlFor } from "../../sanity/lib/sanity";
-
-interface Image {
-  asset: {
-    _ref: string;
-  };
-  alt: string;
-  _key: string;
-  _type: string;
-}
+import { addToCart } from '../actions/action';
+import Swal from 'sweetalert2';
 
 // Define Product type
 interface Product {
-  name: string;
-  id: string;
-  price: string;
-  description: string;
-  image: Image;
+  _id: string;
+  productsName: string;
+  _type: "Product";
+  image?: {
+    asset: {
+      _ref: never;
+      _type: "image";
+    };
+  };
+  price: number;
+  description?: string;
   slug: { current: string };
 }
 
@@ -36,9 +35,10 @@ const Hero = () => {
     const fetchProducts = async () => {
       const data = await client.fetch(`
         *[_type == "product"][0...20]{
-          name,
-          description,
+          _id,
+          productsName,
           price,
+          description,
           image,
           slug
         }
@@ -48,6 +48,21 @@ const Hero = () => {
 
     fetchProducts();
   }, []);
+
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault();
+    Swal.fire({
+      position:"top-start",
+      icon:"success",
+      title: `${
+        product.productsName
+      } add to cart
+    `,
+    showConfirmButton:false,
+    timer:1000
+    })
+    addToCart(product);
+  };
 
   return (
     <div>
@@ -91,45 +106,46 @@ const Hero = () => {
         New ceramics
       </div>
 
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-8">
+        {products.map((product) => (
+          <div
+            key={product.slug.current}
+            className="bg-white border border-gray-200 p-4 rounded-lg shadow-lg"
+          >
 
+<Image
+  src={product.image?.asset?._ref ? urlFor(product.image?.asset?._ref).width(403).height(300).url() : "/fallback-image.jpg"}
+  alt={product.productsName || "Default Product"}
+  width={403}
+  height={300}
+  className="object-cover rounded-md"
+/>
 
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-8">
-          {products.map((product) => (
-            <div
-              key={product.slug.current}
-              className="bg-white border border-gray-200 p-4 rounded-lg shadow-lg"
-            >
-              <Image
-                src={
-                  urlFor(product.image)?.width(403).height(300).url() ||
-                  "/fallback-image.jpg"
-                }
-                alt={product.name || "Default Product"}
-                width={403}
-                height={300}
-                className="object-cover rounded-md"
-              />
-              <div className="text-center mt-4">
-                <p className="font-semibold text-lg">{product.name}</p>
-                <p className="text-red-500">${product.price}</p>
-                <p className="text-sm text-blue-300">{product.description}</p>
-              </div>
-              <div className="mt-4 text-center">
-                <Link href={`/product/${product.slug.current}`} passHref>
-                  <Button className="bg-slate-700 hover:bg-red-700 w-full text-white py-2 rounded-md transition duration-300">
-                    Wishlist
-                  </Button>
-                </Link>
-              </div>
+            <div className="text-center mt-4">
+              <p className="font-semibold text-lg">{product.productsName}</p>
+              <p className="text-red-500">${product.price}</p>
+              <p className="text-sm text-blue-300">{product.description}</p>
             </div>
-          ))}
-        </div>
+            <div className="mt-4 text-center">
+              <Link href={`/product/${product.slug.current}`} passHref>
+                <Button className="bg-slate-700 hover:bg-red-700 w-full text-white py-2 rounded-md transition duration-300">
+                  Wishlist
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-4 text-center">
+              <Button
+                onClick={(e) => handleAddToCart(e, product)}
+                className="bg-blue-500 hover:bg-blue-700 text-white w-full py-2 rounded-md"
+              >
+                Add to Cart
+              </Button>
+            </div>
+          </div>
+        ))}
       </div>
-    
+    </div>
   );
 };
-           
-           
 
 export default Hero;

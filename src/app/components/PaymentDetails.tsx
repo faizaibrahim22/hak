@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React from "react";
 
 // Assuming FormData is already defined somewhere in your code

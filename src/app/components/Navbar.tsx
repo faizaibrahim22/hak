@@ -16,37 +16,22 @@ const Navbar = () => {
         </Link>
       </div>
       </div>
-      <div className="flex justify-center relative right-7 items-center">
-        <div className="text-xl font-bold">Avion</div>
+      <div className="flex justify-center relative top-10 ml-96 left-10 items-center">
+        <div className="text-xl font-bold relative right-36  bottom-8">Avion</div>
+        
         <div className="flex space-x-4">
-          <div className="text-2xl cursor-pointer">
+          <div className="text-2xl  relative left-96 bottom-12 cursor-pointer">
             <FaRegUserCircle />
           </div>
-          <div className="text-2xl cursor-pointer">
+          <div className="text-2xl relative left-80 bottom-12 cursor-pointer">
             <FaCartShopping />
+
           </div>
-          <Link href="/Login"/>
-            <div className="flex items-center">
-              <span>Login</span>
-              <AiOutlineLogin className="ml-2" />
-              
+          
+
+
       </div>
-      </div>
-      <div className='relative ml-72 bottom-16'>
-        <div className='text-2xl cursor-pointer relative ml-96 left-96'>
-          <FaCartShopping />
-        </div>
-      </div>
-      <div className='relative bottom-24  ml-10'>
-      <Link href="/Login">Login
-      <AiOutlineLogin className='relative bottom-5 ml-10' />
-</Link>
-            </div>
-      <div className='relative ml-72 bottom-16'>
-        <div className='text-2xl cursor-pointer relative ml-96 left-96'><FaCartShopping />
-        </div>
-      </div>
-      <div className='relative bottom-24  ml-10'>
+      <div className='relative bottom-10 left-48 '>
       <Link href="/Login">Login
       <AiOutlineLogin className='relative bottom-5 ml-10' />
 

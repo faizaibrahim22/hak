@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Image from 'next/image'
+import Cart from "../components/Cart"
 import Footer from '../components/Footer'
 
 
@@ -34,6 +35,11 @@ const page = () => {
         <p className='ml-96 relative bottom-64 left-96  text-lg'>£85</p>
         <div className='py-96 relative top-96 '>
           <div className='py-96'>
+            <div>
+        <Cart/>
+
+            </div>
+            
         <Footer/>
         </div>
         </div>
